@@ -1,5 +1,4 @@
-
-# OpenAI
+# OpenAI 4o vs Llamma 3.2
 
 ## CoffeeMachine
 

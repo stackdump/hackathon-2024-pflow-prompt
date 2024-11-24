@@ -12,6 +12,7 @@ run_langflow() {
   # Make the POST request and capture the response
   response=$(curl -s -X POST "$api_url" \
     -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer $auth_token" \
     -d '{
       "input_value": "'"${input_value}"'",
     "output_type": "chat",
@@ -25,7 +26,7 @@ run_langflow() {
     }')
 
   # Extract the prompt using jq
-  echo "$response" | jq '.outputs[0].outputs[0].results.message.text | fromjson' $2>/dev/null
+  echo "$response" #| jq '.outputs[0].outputs[0].results.message.text | fromjson'
 }
 
 main() {
