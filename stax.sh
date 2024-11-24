@@ -25,8 +25,9 @@ run_langflow() {
       }
     }')
 
+  # FIXME: return code from llama model includes markdown, need additional code to unpack it
   # Extract the prompt using jq
-  echo "$response" | jq '.outputs[0].outputs[0].results.message.text | fromjson' $2>/dev/null
+  echo "$response" # | jq '.outputs[0].outputs[0].results.message.text' #  | fromjson' #$2>/dev/null
 }
 
 main() {
